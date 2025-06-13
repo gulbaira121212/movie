@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <title>Кино Тизмеси</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        form { margin-bottom: 20px; }
+        .movie { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>🎬 Кино тизмеси</h1>
+
+    <form method="POST" action="/add">
+        <input type="text" name="title" placeholder="Кинонун аталышы" required>
+        <input type="text" name="year" placeholder="Чыккан жылы" required>
+        <input type="text" name="genre" placeholder="Жанры" required>
+        <button type="submit">Кошуу</button>
+    </form>
+
+    <h2>Тизмедеги кинолор:</h2>
+    <ul>
+        {% for movie in movies %}
+            <li class="movie">{{ movie.title }} ({{ movie.year }}) - {{ movie.genre }}</li>
+        {% else %}
+            <li>Азырынча кино жок.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
